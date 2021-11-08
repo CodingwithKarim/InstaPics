@@ -1,5 +1,4 @@
 body{
-  padding-top:80px;
   word-wrap:break-word;
 }
 img{
@@ -32,4 +31,57 @@ img{
 
 .makeComment{
   display: block;
+}
+
+.feedContainer{
+  width: 100%;
+  text-align: center;
+  height:max-content;
+  margin-left: 50%;
+}
+
+.feedPost{
+  text-align: center
+}
+
+.comments{
+  margin-left: 5%;
+  margin-bottom: 2%;
+}
+
+.profileBtn{
+  display: block;
+  font-size: 15px;
+}
+
+ #bootstrap-overide .feedLogout{
+  font-size: 12px;
+}
+
+.feedBtn{
+  display: block;
+  margin-bottom: 1%;
+}
+
+#bootstrap-overide .form-control-file{
+  margin-left: 45%;
+  margin-top: 1%;
+}
+
+#bootstrap-overide .postSubmit{
+  margin-left: 47%;
+  margin-top: 1%;
+}
+
+#bootstrap-overide .profilePosts{
+  margin-left: 33%;
+  width: max-content;
+}
+
+.likesAmount{
+  margin-left: 45%;
+}
+
+#bootstrap-overide .profileHeader{
+  font-size: 25px;
 }

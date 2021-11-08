@@ -14,29 +14,36 @@
     rel="stylesheet"
     href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"
   />
-    <title></title>
+    <title>InstaPics</title>
     <script src="https://kit.fontawesome.com/1b23973fb1.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body id="bootstrap-overide">
+<body style="background-color: lavenderblush;" id="bootstrap-overide">
 <div class="container">
 
     <div class="page-header text-center">
-        <h1>Feed</h1>
+        <h1 class="profileHeader">InstaPics</h1>
+        <span class="profileBtn"> Go To
         <a href="/profile">Profile</a>
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+        </span>
+        <span>
+        <a href="/logout" class="btn btn-default btn-sm feedLogout">Logout</a>
+        </span>
     </div>
 
-    <div class="row">
+    <!-- <div class="row"> -->
 
-       
+      <section class="feedPost">
+        <h3>Posts</h3>
+        </section>
+
         <div class="col-sm-6">
-          <h3>Posts</h3>
           <ul class="messages list-group">
           <% for(var i=0; i<posts.length; i++) {%>
+            <section class="feedContainer"> 
             <li class="message list-group-item">
               <a class="navbar-brand" href="/post/<%= posts[i]._id %>">
                 <h4><%= posts[i].caption %></h4>
@@ -46,7 +53,7 @@
               </a>
               <span><i data-id="<%= posts[i]._id %>" class="fas fa-thumbs-up likes"></i></span>
              
-              <span class="likesAmount"><%= posts[i].likesAmount%></span>
+              <span class="likesAmountFeed"><%= posts[i].likesAmount%></span>
               <div class="form-group">
                 <label for="exampleFormControlInput1">Add Comment</label>
                 <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
@@ -56,6 +63,7 @@
               <% for(var j=0; j < posts[i].comments.length; j++) {%>
               <li><%= posts[i].comments[j] %></li>
               <% } %>
+              </section>
               </ul>
             
              
@@ -67,6 +75,7 @@
 
 
 </div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

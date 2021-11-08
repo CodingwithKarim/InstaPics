@@ -1,28 +1,40 @@
 <!doctype html>
 <html>
 <head>
-    <title>21 Savage Fan Site</title>
+    <title>InstaPics</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body id="bootstrap-overide" style="background-color: aliceblue;">
 <div class="container">
 
     <div class="page-header text-center">
-        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
-        <a href="/feed">Feed</a>
+        <h1>InstaPics</h1>
+        <span class="feedBtn">Go To<a href="/feed"> Feed</a></span>
         <a href="/logout" class="btn btn-default btn-sm">Logout</a>
     </div>
+    <section style="text-align: center;">
+    <h2>Make A Post</h2>
+    </section>
+        <% if (user.local.email) { %>
+          <form action="/makePost" enctype="multipart/form-data" method="POST">
+            <div class="form-group">
+            <input class="form-control" type="text" name="caption" placeholder="caption">
+            <input class="form-control-file" type="file" name="file-to-upload">
+            <button class="btn btn-outline-primary postSubmit" type="submit">Submit</button>
+            </div> 
+          </form>
+        <% } %>
 
-    <div class="row">
+    <!-- <div class="row">
 
-        <!-- LOCAL INFORMATION -->
-        <div class="col-sm-6">
+         LOCAL INFORMATION -->
+        <!-- <div class="col-sm-6">
             <div class="well">
-                <h3><span class="fa fa-user"></span> Local</h3>
+                <h3><span class="fa fa-user"></span> Local</h3> -->
 
-                <% if (user.local.email) { %>
+                <!-- <% if (user.local.email) { %>
                     <p>
                         <strong>id</strong>: <%= user._id %><br>
                         <strong>email</strong>: <%= user.local.email %><br>
@@ -32,24 +44,34 @@
                     <a href="/unlink/local" class="btn btn-default">Unlink</a>
                 <% } else { %>
                     <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                <% } %>
+                <% } %> -->
 
-            </div>
-        </div>
-        <div class="col-sm-6">
+            <!-- </div> -->
+        <!-- </div>  -->
+        <!-- <div class="col-sm-6"> -->
+          <section style="text-align: center;">
           <h3>Posts</h3>
-          <ul class="messages">
+          </section>
+          <ul class="messages list-group"> 
           <% for(var i=0; i<posts.length; i++) {%>
-            <li class="message">
+            <li class="message profilePosts list-group-item">
               <a href="/post/<%= posts[i]._id %>">
                 <h4><%= posts[i].caption %></h4>
                 <img src="<%= posts[i].img %>" alt="">
-              </a>  
+              </a>
+              <section style="display: block; margin-top: 1%;">
+              <span class="likesAmount"><%= posts[i].likesAmount%> Likes</span>
+              </section>
+              <ul>
+                <% for(var j=0; j < posts[i].comments.length; j++) {%>
+                <li><%= posts[i].comments[j] %></li>
+                <% } %>
+                </ul>
             </li>
           <% } %>
           </ul>
 
-          <h2>Make A Post</h2>
+          <!-- <h2>Make A Post</h2>
         <% if (user.local.email) { %>
           <form action="/makePost" enctype="multipart/form-data" method="POST">
             <input type="text" name="caption" placeholder="caption">
@@ -57,9 +79,9 @@
             <button type="submit">Submit</button>
           </form>
         </div>
-        <% } %>
+        <% } %> -->
 
-</div>
+<!-- </div> -->
 
 <script src="main.js"></script>
 
